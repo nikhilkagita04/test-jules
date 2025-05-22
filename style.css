@@ -1,0 +1,231 @@
+/* Global Styles */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    color: #1a237e; /* Dark blue for headings */
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+    color: #555;
+}
+
+a {
+    color: #2962ff; /* Vibrant Blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Layout */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header, main, footer {
+    display: block; /* Ensure block display for older browsers */
+}
+
+header .container { /* Target container within header for specific padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    /* padding: 0 10%; Removed, .container handles this */
+}
+
+header span { /* Style for the logo */
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #1a237e; /* Dark blue, same as headings */
+}
+
+header nav {
+    display: flex;
+    /* justify-content: flex-end; Removed, as container will space-between logo and nav */
+}
+
+header nav a {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+
+/* Hero Section */
+#hero {
+    background-color: #2962ff; /* Vibrant Blue */
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+#hero h1 {
+    color: #ffffff;
+    font-size: 3em;
+}
+
+#hero p {
+    color: #e0e0e0;
+    font-size: 1.2em;
+}
+
+#hero button {
+    background-color: #ff6d00; /* Orange for CTA */
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#hero button:hover {
+    background-color: #ff9100; /* Lighter orange on hover */
+}
+
+/* Other Sections */
+section {
+    padding: 40px 0; /* Consistent padding for sections */
+    border-bottom: 1px solid #eee;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#problem-solution div, #features-benefits div {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+#how-it-works ol {
+    list-style-position: inside;
+    padding-left: 0;
+    display: flex;
+    justify-content: space-around; /* Distribute steps */
+}
+
+#how-it-works li {
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    flex-basis: 30%; /* Assign basis for flex items */
+    text-align: center;
+}
+
+
+#social-proof div p {
+    font-style: italic;
+    background-color: #e3f2fd; /* Light blue background for testimonials */
+    padding: 10px;
+    border-left: 3px solid #2962ff; /* Blue accent */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #f4f7f6;
+}
+
+footer p {
+    margin-bottom: 10px;
+    color: #f4f7f6;
+}
+
+footer button {
+    background-color: #2962ff; /* Vibrant Blue */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer button:hover {
+    background-color: #0039cb; /* Darker blue on hover */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #hero h1 {
+        font-size: 2.5em;
+    }
+
+    header nav {
+        flex-direction: column;
+        align-items: flex-end; /* Align nav items to the right in column layout */
+    }
+
+    header nav a {
+        margin-left: 0;
+        margin-bottom: 10px;
+        margin-top: 5px; /* Add some space when stacked */
+    }
+
+    #how-it-works ol {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #how-it-works li {
+        flex-basis: 80%; /* Wider for stacked items */
+        margin-bottom: 15px;
+    }
+}
