@@ -1,28 +1,28 @@
 /* General App Styling */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f4f7f6; /* Light background for the body */
+  color: #333333; /* Updated primary text color */
 }
 
 .App {
   max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px; /* Adjusted padding */
   /* background-color: #f4f7f6; /* Moved to body to ensure full page coverage */
 }
 
 .App-header { /* Existing class from CRA, can be used for the main heading container */
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px; /* Adjusted margin */
 }
 
 .App-header h1 {
-  color: #333;
+  color: #333333; /* Updated primary text color */
+  font-family: 'Montserrat', sans-serif; /* Updated font */
   font-size: 2.5em; /* Larger heading */
   margin: 0; /* Reset margin if App-header handles spacing */
 }

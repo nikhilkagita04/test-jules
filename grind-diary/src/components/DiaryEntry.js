@@ -27,14 +27,20 @@ const DiaryEntry = ({ entry }) => {
 
       {entry.updateText && (
         <div>
-          <h4 className="entry-section-title">Update</h4>
+          <h4 className="entry-section-title">
+            <span className="entry-section-title-icon">📝</span>
+            Update
+          </h4>
           <p className="entry-content">{entry.updateText}</p>
         </div>
       )}
 
       {entry.metrics && (entry.metrics.hoursSpent !== undefined || entry.metrics.tasksCompleted !== undefined) && (
         <div>
-          <h4 className="entry-section-title">Metrics</h4>
+          <h4 className="entry-section-title">
+            <span className="entry-section-title-icon">📊</span>
+            Metrics
+          </h4>
           <ul className="entry-metrics-list">
             {entry.metrics.hoursSpent !== undefined && (
               <li className="entry-metric-item"><strong>Hours Spent:</strong> {entry.metrics.hoursSpent}</li>
@@ -48,21 +54,30 @@ const DiaryEntry = ({ entry }) => {
 
       {entry.struggles && (
         <div>
-          <h4 className="entry-section-title">Struggles</h4>
+          <h4 className="entry-section-title">
+            <span className="entry-section-title-icon">⚠️</span>
+            Struggles
+          </h4>
           <p className="entry-content">{entry.struggles}</p>
         </div>
       )}
 
       {entry.learnings && (
         <div>
-          <h4 className="entry-section-title">Learnings</h4>
+          <h4 className="entry-section-title">
+            <span className="entry-section-title-icon">💡</span>
+            Learnings
+          </h4>
           <p className="entry-content">{entry.learnings}</p>
         </div>
       )}
 
       {entry.tactics && (
         <div>
-          <h4 className="entry-section-title">Tactics for Next Time</h4>
+          <h4 className="entry-section-title">
+            <span className="entry-section-title-icon">🎯</span>
+            Tactics for Next Time
+          </h4>
           <p className="entry-content">{entry.tactics}</p>
         </div>
       )}

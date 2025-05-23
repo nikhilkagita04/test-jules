@@ -1,43 +1,56 @@
 .diary-entry {
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0; /* Softer border */
+  border-radius: 12px; /* Softer look */
+  padding: 24px; /* Adjusted padding */
+  margin-bottom: 24px; /* Adjusted margin */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12); /* More pronounced shadow */
   font-family: inherit; /* Inherit from App.css */
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Added transition */
+}
+
+.diary-entry:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15); /* Increased shadow on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
 }
 
 .entry-header { /* Container for title and meta */
   border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
+  padding-bottom: 12px; /* Adjusted padding */
+  margin-bottom: 16px; /* Adjusted margin */
 }
 
 .entry-title {
   font-size: 1.5em;
-  color: #333;
+  color: #333333; /* Updated primary text color */
+  font-family: 'Montserrat', sans-serif; /* Updated font */
   margin-top: 0; 
-  margin-bottom: 5px; /* Reduced margin */
+  margin-bottom: 4px; /* Adjusted margin */
 }
 
 .entry-meta { /* For the author/timestamp paragraph */
   font-size: 0.9em;
-  color: #666;
+  color: #555555; /* Updated secondary text color */
   margin-bottom: 0; /* No margin if it's the last item in header */
 }
 
 .entry-section-title {
   font-weight: bold;
-  margin-top: 20px; /* Increased top margin for separation */
+  margin-top: 24px; /* Adjusted margin */
   margin-bottom: 8px;
-  color: #555;
+  color: #555555; /* Updated secondary text color */
   font-size: 1.1em;
+}
+
+.entry-section-title-icon {
+  margin-right: 8px;
+  color: #008080; /* Primary color for icons */
+  font-size: 1em; /* Adjust as needed */
 }
 
 .entry-content { /* Generic class for text content under sections */
   line-height: 1.6;
-  color: #444;
+  color: #333333; /* Updated primary text color */
   font-size: 1em;
 }
 
@@ -45,11 +58,11 @@
   list-style-type: none;
   padding: 0;
   line-height: 1.6; /* Ensure consistent line height */
-  color: #444; /* Ensure consistent text color */
+  color: #333333; /* Updated primary text color */
 }
 
 .entry-metric-item {
-  margin-bottom: 5px;
+  margin-bottom: 4px; /* Adjusted margin */
 }
 
 .entry-no-data { /* For "No entry data provided." type messages */
