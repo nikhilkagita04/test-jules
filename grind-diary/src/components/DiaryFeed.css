@@ -2,21 +2,22 @@
   /* max-width: 800px; /* Already handled by App.css for overall content */
   /* margin: 20px auto; /* Already handled by App.css */
   /* padding: 0 10px;  /* Already handled by App.css */
-  margin-top: 30px; /* Specific margin for the feed itself */
+  margin-top: 32px; /* Adjusted margin */
 }
 
 .feed-title { /* Renamed from styles.feedTitle */
   font-size: 2em;
-  color: #333;
+  color: #333333; /* Updated primary text color */
+  font-family: 'Montserrat', sans-serif; /* Updated font */
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px; /* Adjusted margin */
 }
 
 .feed-empty-message { /* For "No diary entries yet..." */
   text-align: center;
-  color: #777;
+  color: #555555; /* Updated secondary text color */
   font-style: italic;
-  padding: 20px;
+  padding: 24px; /* Adjusted padding */
   background-color: #f9f9f9;
   border: 1px dashed #ddd;
   border-radius: 8px;

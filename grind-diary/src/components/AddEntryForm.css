@@ -1,32 +1,42 @@
 .add-entry-form {
   background-color: #fff;
-  padding: 25px;
+  padding: 24px; /* Adjusted padding */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
+  margin-bottom: 32px; /* Adjusted margin */
 }
 
 .form-field-group { /* Wrapper for label and input */
-  margin-bottom: 15px;
+  margin-bottom: 16px; /* Adjusted margin */
 }
 
 .add-entry-form label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #555;
+  color: #333333; /* Updated primary text color */
 }
 
 .add-entry-form input[type="text"],
 .add-entry-form input[type="number"],
 .add-entry-form textarea {
   width: 100%; /* Let box-sizing handle the padding and border */
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px; /* Increased padding */
+  border: 1px solid #cccccc; /* Updated border color */
   border-radius: 4px;
   box-sizing: border-box; /* Crucial for width: 100% to work as expected */
   font-family: inherit; 
   font-size: 1em; 
+  background-color: #f9f9f9; /* Light background for input fields */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transition */
+}
+
+.add-entry-form input[type="text"]:focus,
+.add-entry-form input[type="number"]:focus,
+.add-entry-form textarea:focus {
+  outline: none;
+  border-color: #008080; /* Primary color border on focus */
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.25); /* Subtle box-shadow on focus */
 }
 
 .add-entry-form textarea {
@@ -35,19 +45,26 @@
 }
 
 .add-entry-form button[type="submit"] {
-  background-color: #007bff;
+  background-color: #008080; /* Updated primary color */
   color: white;
-  padding: 12px 20px;
+  padding: 12px 24px; /* Adjusted padding */
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
-  transition: background-color 0.2s ease;
+  font-weight: bold; /* Added font-weight */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added box shadow */
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Added transform to transition */
   display: block; /* Make button block to center it or give it full width if desired */
-  margin-top: 10px; /* Add some space above the button */
+  margin-top: 16px; /* Adjusted margin */
   width: auto; /* Default width, can be changed to 100% if full-width button is desired */
 }
 
 .add-entry-form button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #006666; /* Darker shade of primary color */
+  transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.add-entry-form button[type="submit"]:active {
+  transform: translateY(1px); /* Slight press on active */
 }
