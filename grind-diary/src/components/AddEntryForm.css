@@ -1,0 +1,53 @@
+.add-entry-form {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.form-field-group { /* Wrapper for label and input */
+  margin-bottom: 15px;
+}
+
+.add-entry-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.add-entry-form input[type="text"],
+.add-entry-form input[type="number"],
+.add-entry-form textarea {
+  width: 100%; /* Let box-sizing handle the padding and border */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Crucial for width: 100% to work as expected */
+  font-family: inherit; 
+  font-size: 1em; 
+}
+
+.add-entry-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.add-entry-form button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+  display: block; /* Make button block to center it or give it full width if desired */
+  margin-top: 10px; /* Add some space above the button */
+  width: auto; /* Default width, can be changed to 100% if full-width button is desired */
+}
+
+.add-entry-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
