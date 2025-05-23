@@ -1,85 +1,13 @@
-/* Global Styles */
-:root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  line-height: 1.6;
-  font-weight: 400;
-
-  color-scheme: light dark; /* Keep this if you want to support dark mode via OS */
-  /* Default to light mode colors, dark mode will be handled by @media query if needed */
-  color: #333;
-  background-color: #f4f4f4;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  padding: 0; /* Ensure body has no padding if App container handles it */
-  /* background-color and color are set on :root now for better dark mode handling */
-  min-height: 100vh;
-  display: flex; /* This was in the original, might be for centering App.jsx content */
-  place-items: center; /* This was in the original */
-}
-
-a {
-  font-weight: 500;
-  color: #007bff; /* Standard link blue */
-  text-decoration: none; /* Remove underline by default */
-}
-a:hover {
-  color: #0056b3; /* Darker blue on hover */
-  text-decoration: underline; /* Underline on hover for clarity */
-}
-
-h1 {
-  font-size: 2.5em; /* Slightly smaller than default Vite for typical app */
-  line-height: 1.2;
-  margin-bottom: 0.5em; /* Add some space below headings */
-}
-
-button {
-  border-radius: 6px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #007bff; /* Primary button color */
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.25s, border-color 0.25s;
-}
-button:hover {
-  background-color: #0056b3; /* Darker on hover */
-  border-color: #0056b3;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color; /* Keep focus outline */
-}
-
-/* Dark mode specific styles (optional, but good to keep if :root had color-scheme) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f4f4f4; /* Light text for dark background */
-    background-color: #242424; /* Dark background */
-  }
-  a {
-    color: #6495ed; /* Lighter blue for dark mode */
-  }
-  a:hover {
-    color: #87cefa; /* Even lighter blue on hover */
-  }
-  button {
-    background-color: #3a3a3a; /* Darker button for dark mode */
-    color: #f4f4f4;
-  }
-  button:hover {
-    background-color: #5a5a5a;
-    border-color: #5a5a5a;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
