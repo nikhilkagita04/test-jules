@@ -69,3 +69,57 @@
     color: #888;
     font-style: italic;
 }
+
+/* Social Interaction Styles */
+.entry-social-interactions {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens if necessary */
+}
+
+.social-button {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.social-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.like-button {
+  /* Specific styles for like button if needed */
+}
+
+.comment-button {
+  background-color: #28a745; /* Green background */
+}
+
+.comment-button:hover {
+  background-color: #1e7e34; /* Darker green on hover */
+}
+
+.share-button {
+  background-color: #17a2b8; /* Teal background */
+}
+
+.share-button:hover {
+  background-color: #117a8b; /* Darker teal on hover */
+}
+
+.like-counter {
+  margin-left: 0px; /* Standardize spacing */
+  margin-right: 10px; /* Space before next button */
+  font-size: 0.9em;
+  color: #555;
+  padding: 6px 0; /* Align vertically with buttons if they have padding */
+}

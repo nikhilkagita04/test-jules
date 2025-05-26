@@ -36,3 +36,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Toggle Button Styling */
+.toggle-button {
+  display: block; /* Make it a block to control margin and width if needed */
+  margin: 16px auto; /* Center the button and add some vertical spacing */
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  background-color: #008080; /* Teal color to match other primary actions */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toggle-button:hover {
+  background-color: #006666; /* Darker teal on hover */
+  transform: translateY(-1px);
+}
+
+.toggle-button:active {
+  transform: translateY(1px);
+}

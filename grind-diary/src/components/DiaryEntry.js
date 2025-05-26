@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DiaryEntry.css'; // Import the CSS file
 
 const DiaryEntry = ({ entry }) => {
+  const [likes, setLikes] = useState(0);
+
+  const handleLike = () => {
+    setLikes(likes + 1);
+  };
+
+  const handleComment = () => {
+    console.log("Comment button clicked");
+  };
+
+  const handleShare = () => {
+    console.log("Share button clicked");
+  };
+
   if (!entry) {
     return <div className="diary-entry entry-no-data"><p>No entry data provided.</p></div>;
   }
@@ -81,6 +95,19 @@ const DiaryEntry = ({ entry }) => {
           <p className="entry-content">{entry.tactics}</p>
         </div>
       )}
+
+      <div className="entry-social-interactions">
+        <button onClick={handleLike} className="social-button like-button">
+          Like
+        </button>
+        <span className="like-counter">{likes}</span>
+        <button onClick={handleComment} className="social-button comment-button">
+          Comment
+        </button>
+        <button onClick={handleShare} className="social-button share-button">
+          Share
+        </button>
+      </div>
     </div>
   );
 };
