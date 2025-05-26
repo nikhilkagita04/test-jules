@@ -50,9 +50,11 @@ const initialData = [
 
 function App() {
   const [entries, setEntries] = useState(initialData);
+  const [showForm, setShowForm] = useState(false); // Default to showing the feed
 
   const handleNewEntry = (newEntry) => {
     setEntries(prevEntries => [newEntry, ...prevEntries]); // Prepend new entry
+    setShowForm(false); // Switch back to the feed after adding an entry
   };
 
   return (
@@ -61,8 +63,21 @@ function App() {
         <h1>The Grind Diary</h1>
       </header>
       <main>
-        <AddEntryForm onNewEntry={handleNewEntry} />
-        <DiaryFeed entries={entries} />
+        {showForm ? (
+          <>
+            <button onClick={() => setShowForm(false)} className="toggle-button">
+              Back to Feed
+            </button>
+            <AddEntryForm onNewEntry={handleNewEntry} />
+          </>
+        ) : (
+          <>
+            <button onClick={() => setShowForm(true)} className="toggle-button">
+              Add New Grind
+            </button>
+            <DiaryFeed entries={entries} />
+          </>
+        )}
       </main>
     </div>
   );
