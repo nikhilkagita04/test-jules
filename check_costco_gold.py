@@ -68,6 +68,16 @@ PRODUCTS = [
         "name": "1oz PAMP Suisse Diwali Lakshmi (B)",
         "url": "https://www.costco.com/1-oz-gold-bar-pamp-suisse-diwali-lakshmi.product.4000300302.html",
     },
+    # ── Argor-Heraeus Kinebar ────────────────────────────────────────────────
+    {
+        "name": "1oz Argor-Heraeus Kinebar",
+        "url": "https://www.costco.com/1-oz-gold-argor-heraeus-kinebar-new-in-assay.product.4000329233.html",
+    },
+    # ── Royal Mint Britannia ─────────────────────────────────────────────────
+    {
+        "name": "1oz Royal Mint Britannia",
+        "url": "https://www.costco.com/the-royal-mint-britannia-1-oz-gold-bar-new-in-assay.product.4000387588.html",
+    },
     # ── Rand Refinery ────────────────────────────────────────────────────────
     {
         "name": "1oz Rand Refinery Gold Bar",
