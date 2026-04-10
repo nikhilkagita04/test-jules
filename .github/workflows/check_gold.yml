@@ -1,0 +1,28 @@
+name: 🥇 Costco Gold Stock Alert
+
+# ── Runs every 15 minutes, 24 / 7 — completely free ──────────────────────────
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes
+  workflow_dispatch:           # "Run workflow" button in GitHub UI for manual test
+
+jobs:
+  check-costco-gold:
+    name: Check stock & notify if found
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --quiet requests
+
+      - name: Run gold stock checker
+        run: python check_costco_gold.py
