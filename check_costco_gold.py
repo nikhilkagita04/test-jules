@@ -3,22 +3,21 @@
 Costco Gold Bar Stock Checker
 ──────────────────────────────
 Monitors Costco.com every 15 min for 1oz PAMP Suisse / Rand Refinery
-gold bars and fires an SMS to the target phone the moment one is in stock.
+gold bars and fires a push notification the moment one is in stock.
 
-Requirements:  pip install requests twilio
-Secrets needed (GitHub repo secrets):
-    TWILIO_ACCOUNT_SID   – from twilio.com/console
-    TWILIO_AUTH_TOKEN    – from twilio.com/console
-    TWILIO_PHONE_NUMBER  – your Twilio trial number, e.g. +12015551234
+Notification method: ntfy.sh  (100% free, no account needed)
+  → Install "ntfy" app on your phone
+  → Subscribe to topic:  costcogold-8482562090
+
+No secrets or API keys required — just works.
 """
 
-import os
 import sys
 import requests
 from datetime import datetime, timezone
 
-# ── Target phone ──────────────────────────────────────────────────────────────
-TARGET_PHONE = "+18482562090"
+# ── ntfy topic (your private notification channel) ───────────────────────────
+NTFY_TOPIC = "costcogold-8482562090"
 
 # ── Products to watch ─────────────────────────────────────────────────────────
 PRODUCTS = [
@@ -78,8 +77,7 @@ def check_stock(product: dict) -> tuple[bool | None, str]:
         if resp.status_code != 200:
             return None, f"HTTP {resp.status_code} — possibly blocked"
 
-        page = resp.text
-        low  = page.lower()
+        low = resp.text.lower()
 
         # 1. JSON-LD / embedded product data (most reliable)
         if '"availability":"instock"' in low or '"instock"' in low:
@@ -101,26 +99,33 @@ def check_stock(product: dict) -> tuple[bool | None, str]:
         return None, f"Error — {exc}"
 
 
-# ── SMS via Twilio ────────────────────────────────────────────────────────────
+# ── Push notification via ntfy.sh ─────────────────────────────────────────────
 
-def send_sms(body: str) -> bool:
-    sid       = os.environ.get("TWILIO_ACCOUNT_SID")
-    token     = os.environ.get("TWILIO_AUTH_TOKEN")
-    from_num  = os.environ.get("TWILIO_PHONE_NUMBER")
-
-    if not all([sid, token, from_num]):
-        print("  ⚠️  Twilio env vars not set — SMS skipped")
-        return False
-
+def send_notification(title: str, body: str, url: str = "") -> bool:
+    """Send a push notification via ntfy.sh — completely free, no account needed."""
     try:
-        from twilio.rest import Client
-        msg = Client(sid, token).messages.create(
-            body=body, from_=from_num, to=TARGET_PHONE
+        headers = {
+            "Title":    title,
+            "Priority": "urgent",
+            "Tags":     "rotating_light,moneybag",
+        }
+        if url:
+            headers["Click"] = url   # tapping the notification opens the buy link
+
+        resp = requests.post(
+            f"https://ntfy.sh/{NTFY_TOPIC}",
+            data=body.encode("utf-8"),
+            headers=headers,
+            timeout=15,
         )
-        print(f"  ✅ SMS sent  (SID: {msg.sid})")
-        return True
+        if resp.status_code == 200:
+            print(f"  ✅ Notification sent via ntfy.sh")
+            return True
+        else:
+            print(f"  ❌ ntfy.sh returned HTTP {resp.status_code}")
+            return False
     except Exception as exc:
-        print(f"  ❌ SMS failed — {exc}")
+        print(f"  ❌ Notification failed — {exc}")
         return False
 
 
@@ -149,13 +154,13 @@ def main() -> None:
     print(f"\n{'─' * 58}")
 
     if in_stock_items:
-        print(f"  🚨 IN STOCK!  Sending SMS to {TARGET_PHONE} …")
-        lines = ["🚨 COSTCO GOLD IN STOCK! Buy NOW!\n"]
+        print(f"  🚨 IN STOCK! Sending push notification …")
         for item in in_stock_items:
-            lines.append(f"• {item['name']}")
-            lines.append(f"  {item['url']}\n")
-        lines.append(f"Checked: {now}")
-        send_sms("\n".join(lines))
+            send_notification(
+                title="🚨 COSTCO GOLD IN STOCK — BUY NOW!",
+                body=f"{item['name']}\nTap to open Costco and add to cart!\nChecked: {now}",
+                url=item["url"],
+            )
     else:
         print("  💤  All items out of stock. Next check in 15 min.")
 
